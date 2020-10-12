@@ -6,7 +6,7 @@
 	<session-factory>
     <!-- Configuration de la connexion -->
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/database_name?createDatabaseIfNotExist=true
+			jdbc:mysql://localhost:3306/gestionVoyage?createDatabaseIfNotExist=true
 		</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
@@ -15,11 +15,16 @@
 		</property>
 		<!-- Configuration des propriétés de hibernate -->
 		<!-- Les valeurs possibles : create, update, validate, create-drop -->
-		<property name="hibernate.hbm2ddl.auto">update</property>
+		<property name="hibernate.hbm2ddl.auto">create</property>
 		<!-- Déclarer le dialect correspondant à MySQL -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- Afficher les requêtes SQL générées (true) -->
 		<property name="hibernate.show_sql">true</property>
-		<mapping class="com.inti.entities.Entities" />
+		<mapping class="com.inti.entities.Destination" />
+		<mapping class="com.inti.entities.Avis" />
+		<mapping class="com.inti.entities.Hotel" />
+		<mapping class="com.inti.entities.Reservation" />
+		<mapping class="com.inti.entities.Voyageur" />
+	
 	</session-factory>
 </hibernate-configuration>
