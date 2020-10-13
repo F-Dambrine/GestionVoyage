@@ -39,5 +39,5 @@ public class FirstManagedBean implements Serializable{
 			return "rejected";
 		}
 	} 
-
 }
+	

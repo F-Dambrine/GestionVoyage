@@ -4,11 +4,13 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+@Entity
 public class Voyageur implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -19,7 +21,7 @@ public class Voyageur implements Serializable {
 	private String prenom;
 	private int age;
 	
-	@OneToMany(mappedBy="reservation")
+	@OneToMany(mappedBy="voyageur")
 	private Set<Reservation> reservations= new HashSet<>();
 	
 	public Voyageur() {

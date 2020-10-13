@@ -24,10 +24,10 @@ public class Hotel implements Serializable{
 	@ManyToOne
 	private Destination destination;
 	
-	@OneToMany(mappedBy="reservation")
+	@OneToMany(mappedBy="hotel")
 	private Set<Reservation> reservations= new HashSet<>();
 	
-	@OneToMany(mappedBy="avis")
+	@OneToMany(mappedBy="hotel")
 	private Set<Avis> avisSet= new HashSet<>();
 	
 	@Override

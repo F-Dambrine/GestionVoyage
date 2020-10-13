@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+<h:body>
+<h:form id="formAddDestination">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="longitude"></h:outputLabel>
+				<h:inputText value="#{destinationManagedBean.destination.longitude}"></h:inputText>
+			<h:outputLabel value="latitude"></h:outputLabel>
+				<h:inputText value="#{destinationManagedBean.destination.latitude}"></h:inputText>
+			<h:outputLabel value="Hotel"></h:outputLabel>
+				<h:selectOneMenu value="#{destinationManagedBean.destination.hotel}" converter="hotelConverter">
+				<f:selectItem itemValue="#{null}" itemLabel="--Sélectionner--"></f:selectItem>
+				<f:selectItems value="#{destinationManagedBean.hotels}" var="h" itemLabel="#{h.nom}" itemValue="#{h}"></f:selectItems>
+				</h:selectOneMenu>
+			<h:commandButton action="#{destinationManagedBean.addDestination()}" value="Save"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	<h:form id="formDisplayDestination">
+		<p:dataTable value="#{destinationManagedBean.destinations}" var="d">
+			<p:column headerText="longitude">
+				<h:outputText value="#{d.longitude}"></h:outputText>
+			</p:column>
+			<p:column headerText="latitude">
+				<h:outputText value="#{d.latitude}"></h:outputText>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{destinationManagedBean.editDestination(e)}" value="Update"></h:commandButton>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{destinationManagedBean.deleteDestination(e)}" value="Delete"></h:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

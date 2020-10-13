@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html">
-	<body>
+	<h:body>
 	<h:form>
 		<h:outputLabel value="login" />
 		<h:inputText value="#{firstManagedBean.login}" type="text"/>
@@ -10,5 +10,5 @@
 		<h:inputText value="#{firstManagedBean.password}" type="password"/>
 		<h:commandButton action="#{firstManagedBean.seConnecter()}" value="Se connecter"></h:commandButton>
 		</h:form>
-	</body>
+	</h:body>
 </html>
