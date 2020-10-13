@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+<h:body>
+<h:form id="formAddReservation">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="Date de Réservation"></h:outputLabel>
+				<h:inputText id="date" value="#{reservationManagedBean.reservation.dateReservation}">
+					<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+				</h:inputText>
+			<h:outputLabel value="Nombre de jours"></h:outputLabel>
+				<h:inputText value="#{reservationManagedBean.reservation.nbJours}"></h:inputText>
+			<h:outputLabel value="Hotel"></h:outputLabel>
+				<h:selectOneMenu value="#{reservationManagedBean.reservation.hotel}" converter="hotelConverter">
+					<f:selectItem itemValue="#{null}" itemLabel="--Sélectionner--"></f:selectItem>
+					<f:selectItems value="#{reservationManagedBean.hotels}" var="h" itemLabel="#{h.nom}" itemValue="#{h}"></f:selectItems>
+				</h:selectOneMenu>
+			<h:outputLabel value="Voyageur"></h:outputLabel>
+				<h:selectOneMenu value="#{reservationManagedBean.reservation.voyageur}" converter="voyageurConverter">
+					<f:selectItem itemValue="#{null}" itemLabel="--Sélectionner--"></f:selectItem>
+					<f:selectItems value="#{reservationManagedBean.voyageurs}" var="v" itemLabel="#{v.nom}" itemValue="#{v}"></f:selectItems>
+				</h:selectOneMenu>
+			<h:commandButton action="#{reservationManagedBean.addReservation()}" value="Save"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	<h:form id="formDisplayReservation">
+		<p:dataTable value="#{reservationManagedBean.reservations}" var="r">
+			<p:column headerText="Date de réservation">
+				<h:outputText value="#{r.dateReservation}"></h:outputText>
+			</p:column>
+			<p:column headerText="Nombre de jours">
+				<h:outputText value="#{r.nbJours}"></h:outputText>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{reservationManagedBean.editReservation(r)}" value="Update"></h:commandButton>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{reservationManagedBean.deleteReservation(r)}" value="Delete"></h:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

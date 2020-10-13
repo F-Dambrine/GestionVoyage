@@ -15,7 +15,7 @@
 		</property>
 		<!-- Configuration des propriétés de hibernate -->
 		<!-- Les valeurs possibles : create, update, validate, create-drop -->
-		<property name="hibernate.hbm2ddl.auto">create</property>
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		<!-- Déclarer le dialect correspondant à MySQL -->
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- Afficher les requêtes SQL générées (true) -->

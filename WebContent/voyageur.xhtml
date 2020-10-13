@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+      
+<h:body>
+<h:form id="formAddVoyageur">
+		<h:panelGrid columns="2">
+			<h:outputLabel value="nom"></h:outputLabel>
+				<h:inputText value="#{voyageurManagedBean.voyageur.nom}"></h:inputText>
+			<h:outputLabel value="prenom"></h:outputLabel>
+				<h:inputText value="#{voyageurManagedBean.voyageur.prenom}"></h:inputText>
+			<h:outputLabel value="age"></h:outputLabel>
+				<h:inputText value="#{voyageurManagedBean.voyageur.age}" converterMessage="Please enter digits only"></h:inputText>
+			<h:outputLabel value="Reservation"></h:outputLabel>
+				<h:selectOneMenu value="#{voyageurManagedBean.voyageur.reservation}" converter="reservationConverter">
+				<f:selectItem itemValue="#{null}" itemLabel="--Sélectionner--"></f:selectItem>
+				<f:selectItems value="#{voyageurManagedBean.reservations}" var="r" itemLabel="#{r.nom}" itemValue="#{r}"></f:selectItems>
+				</h:selectOneMenu>
+			<h:commandButton action="#{voyageurManagedBean.addVoyageur()}" value="Save"></h:commandButton>
+		</h:panelGrid>
+	</h:form>
+	<h:form id="formDisplayVoyageur">
+		<p:dataTable value="#{voyageurManagedBean.voyageurs}" var="v">
+			<p:column headerText="nom">
+				<h:outputText value="#{v.nom}"></h:outputText>
+			</p:column>
+			<p:column headerText="prénom">
+				<h:outputText value="#{v.prenom}"></h:outputText>
+			</p:column>
+			<p:column headerText="age">
+				<h:outputText value="#{v.age}"></h:outputText>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{voyageurManagedBean.editVoyageur(v)}" value="Update"></h:commandButton>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{voyageurManagedBean.deleteVoyageur(v)}" value="Delete"></h:commandButton>
+			</p:column>
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

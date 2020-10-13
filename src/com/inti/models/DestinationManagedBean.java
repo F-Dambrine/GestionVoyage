@@ -70,7 +70,7 @@ public class DestinationManagedBean implements Serializable {
 		try {
 			destinationService.update(this.destination);
 			this.destination = new Destination();
-			return "accueil?faces-redirect=true";
+			return "hotel?faces-redirect=true";
 		} catch (Exception e) {
 			e.printStackTrace();
 			return "editDestination";
@@ -78,7 +78,7 @@ public class DestinationManagedBean implements Serializable {
 	}
 	public String editDestination(Destination destination) {
 		this.destination = destination;
-		return "edit";
+		return "editDestination";
 	}
 	public void deleteDestination(Destination destination) {
 		try {

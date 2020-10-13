@@ -34,7 +34,7 @@ public class FirstManagedBean implements Serializable{
 	
 	public String seConnecter() {
 		if(this.login.equals("boss") && this.password.equals("boss")) {
-			return "accepted";
+			return "hotel";
 		} else {
 			return "rejected";
 		}
