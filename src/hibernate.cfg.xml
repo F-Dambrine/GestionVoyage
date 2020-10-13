@@ -6,7 +6,7 @@
 	<session-factory>
     <!-- Configuration de la connexion -->
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/gestionVoyage?createDatabaseIfNotExist=true
+			jdbc:mysql://localhost:3306/gestion_Voyage?createDatabaseIfNotExist=true
 		</property>
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>

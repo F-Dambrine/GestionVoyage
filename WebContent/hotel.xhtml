@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+		<h:form id="form1">
+			<h:panelGrid columns="2">
+			<h:outputText value="Nom hotel"> </h:outputText>
+			<h:inputText value="#{hotelManagedBean.hotel.nom}"></h:inputText>
+			<h:outputText value="Nbre étoiles (/5)"> </h:outputText>
+			<h:inputText value="#{hotelManagedBean.hotel.nbEtoile}"></h:inputText>
+			<h:commandButton action="#{hotelManagedBean.enregistrerHotel}" value="Enregistrer"></h:commandButton>
+			</h:panelGrid>
+			</h:form>
+			
+			<h:form id="form2">
+			<p:dataTable value="#{hotelManagedBean.hotels}" var="h">
+			<p:column headerText="Nom">
+			<h:outputText value="#{h.nom}"></h:outputText>
+			</p:column>
+			<p:column headerText="Nbre étoiles">
+			<h:outputText value="#{h.nbEtoile}"></h:outputText>
+			</p:column>
+			<p:column headerText="Action">
+				<h:commandButton action="#{hotelManagedBean.supprimerHotel(h)}"
+					value="Supprimer"></h:commandButton>
+					</p:column>
+			</p:dataTable>
+			</h:form>
+</h:body>
+</html>
