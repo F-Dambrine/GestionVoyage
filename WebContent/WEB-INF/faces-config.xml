@@ -7,11 +7,18 @@
 		<from-view-id>/index.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>accepted</from-outcome>
-			<to-view-id>/accueil.xhtml</to-view-id>
+			<to-view-id>/hotel.xhtml</to-view-id>
 		</navigation-case>
 		<navigation-case>
 			<from-outcome>rejected</from-outcome>
 			<to-view-id>/erreur.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/hotel.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>update</from-outcome>
+			<to-view-id>/update.xhtml</to-view-id>
 		</navigation-case>
 	</navigation-rule>
 </faces-config>

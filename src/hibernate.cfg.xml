@@ -20,10 +20,12 @@
 		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
 		<!-- Afficher les requêtes SQL générées (true) -->
 		<property name="hibernate.show_sql">true</property>
+
 		<mapping class="com.inti.entities.Avis" />
 		<mapping class="com.inti.entities.Destination" />
 		<mapping class="com.inti.entities.Hotel" />
 		<mapping class="com.inti.entities.Reservation" />
 		<mapping class="com.inti.entities.Voyageur" />
+
 	</session-factory>
 </hibernate-configuration>
